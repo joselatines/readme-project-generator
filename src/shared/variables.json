@@ -1,0 +1,24 @@
+{
+	"colors": {
+		"bg": "#FAF6FF",
+		"font": "#1F1F1F",
+		"primary": "#bdb2ff",
+		"gray": "#8D8D8D"
+	},
+	"font": {
+		"style": "Montserrat",
+		"desktop": "24px",
+		"mobile": "12px",
+		"regular": 400,
+		"bold": 600
+	},
+	"default": {
+		"borderRadius": "50px"
+	},
+	"mediaQueries": {
+		"mobileM": "380px"
+	},
+	"transition": {
+		"short": ".5s ease"
+	}
+}
