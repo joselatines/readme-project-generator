@@ -18,18 +18,18 @@ export const Questions = () => {
 		project_title: '',
 		description: '',
 		installation: '',
-		features: {},
-		social_links: {},
+		features: [],
+		social_links: [],
 	});
 
-	// This function is used for save value of multiple inputs
+	// This function is used for save the values of multiple inputs
 	const handleMultipleInputs = (e, stateProperty) => {
 		const targetName = e.target.name;
 		const targetValue = e.target.value;
 		// Select the single property of our answers state
 		let property = answers[stateProperty];
 		// Overwriting the property
-		property = { ...property, [targetName]: targetValue };
+		property = [...property, { name: targetName, content: targetValue }];
 		// Adding to the actual state
 		setAnswers({ ...answers, [stateProperty]: property });
 	};

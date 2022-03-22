@@ -10,50 +10,33 @@ import { Btn } from '../shared/Buttons';
 
 export const GeneratedPage = () => {
 	const { state } = useLocation();
-	const { project_title, description, installation, features, social_links } =
-		state;
+	const { project_title, description, installation, features, social_links } = state;
 
 	const [template, setTemplate] = useState(``);
 	const [templateHTML, setTemplateHTML] = useState(``);
 
 	useEffect(() => {
-		const itemList = (obj) => {
-			let elements = [];
-			for (const key in obj) {
-				Object.hasOwnProperty.call(obj, key) && elements.push(obj[key]);
-			}
-			return elements.map((e) => `- ${e}`).join('\n');
-		};
+		const socialMediaLinks = () => social_links.map((el) => `<a href="${el.content}" target="_blank"><img width="20" height="20" src="https://img.shields.io/badge/${el.name}-%230077B5.svg??style=social&logo=${el.name}&logoColor=white"/></a>`).join(' ');
 
-		const socialMediaLinks = (linksObj) => {
-			let array = Object.keys(linksObj); // Getting the key
-			let links = Object.values(linksObj); // Getting the links
+		const featuresList = () => features.map((e) => `- ${e.content}`).join('\n');
 
-			return array
-				.map(
-					(el, index) =>
-						`<a href="${links[index]}" target="_blank"><img width="20" height="20" src="https://img.shields.io/badge/${el}-%230077B5.svg??style=social&logo=${el}&logoColor=white"/></a>`
-				)
-				.join(' ');
-		};
+		const converter = new showdown.Converter();
 
-		let converter = new showdown.Converter();
-
-		let md =
+		const md =
 			`# ${project_title} 💻\n` +
 			`## Description 📚\n` +
 			` ${description} \n` +
 			`## Installation 🛠\n` +
 			` ${installation} \n` +
 			`## App features 💎\n` +
-			`${itemList(features)} \n` +
+			`${featuresList()} \n` +
 			`## Social media 😃\n` +
-			`${socialMediaLinks(social_links)}`;
+			`${socialMediaLinks()}`;
 
-		let html = converter.makeHtml(md);
+		const html = converter.makeHtml(md);
 		setTemplate(md);
 		setTemplateHTML(html);
-	});
+	}, []);
 
 	return (
 		<Container>
