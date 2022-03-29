@@ -5,9 +5,9 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import { GeneratedPage } from './pages/GeneratedPage';
 import { GeneratorPage } from './pages/GeneratorPage';
 import { HomePage } from './pages/HomePage';
-import { Contribute } from './pages/ContributePage';
 
 import { App } from './App';
+import { NotFoundPage } from './pages/NotFoundPage';
 
 ReactDom.render(
 	<React.StrictMode>
@@ -19,8 +19,7 @@ ReactDom.render(
 					<Route path='generated' element={<GeneratedPage />}>
 						<Route path=':projectTitle' element={<GeneratedPage />} />
 					</Route>
-					<Route path='contribute' element={<Contribute />} />
-					<Route path='*' element={<div>404</div>} />
+					<Route path='*' element={<NotFoundPage />} />
 				</Route>
 			</Routes>
 		</BrowserRouter>

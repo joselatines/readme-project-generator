@@ -6,13 +6,6 @@ import { Questions } from '../components/Questions';
 export const GeneratorPage = () => {
 	return (
 		<div>
-			<Header>
-				<h1>Readme project generator</h1>
-				<span>A good project needs good description</span>
-				<a href='http://' target='_blank' rel='noopener noreferrer'>
-					By Jose Latines
-				</a>
-			</Header>
 			<Questions />
 		</div>
 	);

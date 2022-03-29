@@ -20,15 +20,9 @@ export const GlobalStyle = createGlobalStyle`
 	a {
 		all: unset;
         cursor: pointer;
-        &:hover {
-            opacity: .6;
-        }
 	}
 	img {
 		width: 100%;
-		object-fit: cover;
-	}
-	.content {
-		margin: 3rem 0;
+		object-fit: contain;
 	}
 `;

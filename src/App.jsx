@@ -9,9 +9,7 @@ export const App = () => {
 	return (
 		<Fragment>
 			<Navigation />
-			<div className='content'>
-				<Outlet />
-			</div>
+			<Outlet />
 			<Footer />
 			<GlobalStyle />
 		</Fragment>

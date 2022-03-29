@@ -2,15 +2,29 @@ import styled from 'styled-components';
 
 import variables from '../shared/variables.json';
 
+export const ImgCheckBox = ({ tool, img, handleCheckBox, stateProperty }) => {
+	return (
+		<CheckBoxContainer>
+			<input
+				type='checkbox'
+				id={tool}
+				onChange={(e) => handleCheckBox(tool, img, e, stateProperty)}
+			/>
+			<label htmlFor={tool}>
+				<img style={{ width: '4rem' }} src={img} alt={tool} />
+			</label>
+		</CheckBoxContainer>
+	);
+};
+
 export const InputTextQuestion = styled.input`
 	font-size: 20px;
 	all: unset;
-	border-bottom: 3px solid unset;
+	border-bottom: 3px solid ${variables.colors.gray};
 	// Neumorphism
 	border-radius: 10px;
-	border-bottom: 2px solid ${variables.colors.gray};
-	background: linear-gradient(145deg, #e1dde6, #ffffff);
-	box-shadow: 17px 17px 34px #d5d1d9, -17px -17px 34px #ffffff;
+	background: #ffffff;
+	box-shadow: 20px 20px 60px #d9d9d9, -20px -20px 60px #ffffff;
 	overflow: hidden;
 
 	padding: 1rem;
@@ -25,3 +39,12 @@ export const TextAreaQuestion = styled(InputTextQuestion)`
 `;
 
 export const SocialMediaLink = styled(InputTextQuestion)``;
+
+const CheckBoxContainer = styled.div`
+	position: relative;
+	input {
+		position: absolute;
+		top: 0;
+		right: 0;
+	}
+`;

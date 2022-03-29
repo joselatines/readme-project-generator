@@ -10,15 +10,35 @@ import { Btn } from '../shared/Buttons';
 
 export const GeneratedPage = () => {
 	const { state } = useLocation();
-	const { project_title, description, installation, features, social_links } = state;
+	const {
+		project_title,
+		description,
+		installation,
+		features,
+		social_links,
+		tools,
+		languages,
+		frameworks,
+	} = state;
 
 	const [template, setTemplate] = useState(``);
 	const [templateHTML, setTemplateHTML] = useState(``);
 
 	useEffect(() => {
-		const socialMediaLinks = () => social_links.map((el) => `<a href="${el.content}" target="_blank"><img width="20" height="20" src="https://img.shields.io/badge/${el.name}-%230077B5.svg??style=social&logo=${el.name}&logoColor=white"/></a>`).join(' ');
+		const socialMediaLinks = () =>
+			social_links
+				.map(
+					(el) =>
+						`<a href="${el.content}" target="_blank"><img width="20" height="20" src="https://img.shields.io/badge/${el.name}-%230077B5.svg??style=social&logo=${el.name}&logoColor=white"/></a>`
+				)
+				.join(' ');
 
 		const featuresList = () => features.map((e) => `- ${e.content}`).join('\n');
+
+		const toolsList = (type) =>
+			type
+				.map((el) => `<img width="30" height="30" src="${el.img}"/>`)
+				.join(' ');
 
 		const converter = new showdown.Converter();
 
@@ -30,7 +50,13 @@ export const GeneratedPage = () => {
 			` ${installation} \n` +
 			`## App features 💎\n` +
 			`${featuresList()} \n` +
-			`## Social media 😃\n` +
+			`## Languages 🛠 \n` +
+			`${toolsList(languages)} \n` +
+			`## Frameworks 🧰\n` +
+			`${toolsList(frameworks)} \n` +
+			`## Tools used ⚙\n` +
+			`${toolsList(tools)} \n` +
+			`## Lets connect! 📲\n` +
 			`${socialMediaLinks()}`;
 
 		const html = converter.makeHtml(md);
@@ -50,14 +76,14 @@ export const GeneratedPage = () => {
 							onClick={() => toast.success('Copied')}
 							className='copy-clipboard'
 						>
-							<ion-icon name='copy-outline'></ion-icon>
+							<i className='fa-solid fa-copy'></i>
 						</Btn>
 					</CopyToClipboard>
 				</div>
 			</Preview>
 			<Link to='/generator'>
 				<Btn>
-					<ion-icon name='arrow-back-outline'></ion-icon> Back to edit
+					<i className='fa-solid fa-arrow-left'></i>Back to edit
 				</Btn>
 			</Link>
 		</Container>
@@ -85,10 +111,10 @@ const Preview = styled.section`
 	font-size: 1.3rem;
 	padding: 2rem 4rem;
 	position: relative;
-	// Neomorphism
+	// Neumorphism
 	border-radius: 10px;
-	background: #faf6ff;
-	box-shadow: inset 20px 20px 60px #d5d1d9, inset -20px -20px 60px #ffffff;
+	background: #ffffff;
+	box-shadow: inset 20px 20px 60px #d9d9d9, inset -20px -20px 60px #ffffff;
 `;
 
 const ReadmeContainer = styled(Preview)`

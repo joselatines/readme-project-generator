@@ -5,11 +5,11 @@ export const Btn = styled.button`
 	all: unset;
 	// Neumorphism
 	border-radius: 50px;
-	box-shadow: 20px 20px 60px #a197d9, -20px -20px 60px #d9cdff;
+	box-shadow: 5px 5px 60px #a197d9, -5px -5px 60px #d9cdff;
 
 	background-color: ${variables.colors.primary};
 	padding: 5px 20px;
-	cursor: pointer;
+	cursor: pointer; 
 	transition: background-color ${variables.transition.short};
 	z-index: 10;
 	text-align: center;
@@ -27,7 +27,7 @@ export const Btn = styled.button`
 	${(props) =>
 		props.outline &&
 		css`
-			background-color: unset;
+			background-color: ${variables.colors.bg};
 			border: 2px solid ${variables.colors.primary};
 			&:hover {
 				outline: unset;
