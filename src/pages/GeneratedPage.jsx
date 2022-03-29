@@ -37,7 +37,7 @@ export const GeneratedPage = () => {
 
 		const toolsList = (type) =>
 			type
-				.map((el) => `<img width="30" height="30" src="${el.img}"/>`)
+				.map((el) => `<img width="60" height="20" src="${el.img}"/>`)
 				.join(' ');
 
 		const converter = new showdown.Converter();
