@@ -20,10 +20,15 @@ export const Navigation = () => {
 				</li>
 
 				<li>
-					<Btn outline className='btn'>
-						Contribute
-						<i className='fa-solid fa-code-fork'></i>
-					</Btn>
+					<a
+						href='https://github.com/joselatines/project-description-generator'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						<Btn outline className='btn'>
+							Contribute<i className='fa-solid fa-code-fork'></i>
+						</Btn>
+					</a>
 				</li>
 			</ul>
 		</Container>

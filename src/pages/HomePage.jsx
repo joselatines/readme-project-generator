@@ -1,22 +1,27 @@
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { Btn } from '../shared/Buttons';
-import variables from '../shared/variables.json';
 
 export const HomePage = () => {
 	return (
 		<Container>
 			<h1>Welcome to Readme project generator</h1>
-			<span>Every good project needs good project description</span>
+			<span>Every good project needs a good description</span>
 			<div className='btnContainer'>
 				<Link to='generator'>
 					<Btn>
 						<i className='fa-solid fa-robot'></i>Generate README
 					</Btn>
 				</Link>
-				<Btn outline>
-					<i className='fa-solid fa-code-fork'></i> Contribute
-				</Btn>
+				<a
+					href='https://github.com/joselatines/project-description-generator'
+					target='_blank'
+					rel='noopener noreferrer'
+				>
+					<Btn outline className='btn'>
+						Contribute<i className='fa-solid fa-code-fork'></i>
+					</Btn>
+				</a>
 			</div>
 		</Container>
 	);
