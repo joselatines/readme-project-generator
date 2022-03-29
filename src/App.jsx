@@ -10,7 +10,7 @@ export const App = () => {
 		<Fragment>
 			<Navigation />
 			<Outlet />
-			<Footer />
+		
 			<GlobalStyle />
 		</Fragment>
 	);

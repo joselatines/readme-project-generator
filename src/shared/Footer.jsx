@@ -25,8 +25,10 @@ const Container = styled.nav`
 	justify-content: center;
 	overflow: hidden;
 	margin-top: 3rem;
-	// Neumorphism
-	border-radius: 50px;
-	background: #ffffff;
-	box-shadow: inset 20px 20px 60px #d9d9d9, inset -20px -20px 60px #ffffff;
+
+	position: absolute;
+	bottom: 10px;
+	left: 50%;
+	transform: translateX(-50%);
+	width: 80%;
 `;

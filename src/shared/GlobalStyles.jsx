@@ -14,6 +14,7 @@ export const GlobalStyle = createGlobalStyle`
 		background-color: ${variables.colors.bg};
 		color: ${variables.colors.font};
 		padding: 1.5rem;
+		padding-bottom: 2rem;
         font-size: ${variables.font.desktop};
 		position: relative;
 	}

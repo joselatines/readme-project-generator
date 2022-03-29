@@ -34,7 +34,7 @@ const Container = styled.header`
 	align-items: center;
 	justify-content: center;
 	text-align: center;
-	height: 60vh;
+	height: 90vh;
 	h1 {
 		font-size: 2.5rem;
 	}
