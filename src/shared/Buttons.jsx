@@ -5,7 +5,7 @@ export const Btn = styled.button`
 	all: unset;
 	// Neumorphism
 	border-radius: 50px;
-	box-shadow: 5px 5px 60px #a197d9, -5px -5px 60px #d9cdff;
+
 
 	background-color: ${variables.colors.primary};
 	padding: 5px 20px;

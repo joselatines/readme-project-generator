@@ -36,7 +36,7 @@ export const Questions = () => {
 		setAnswers({ ...answers, [stateProperty]: property });
 	};
 
-	const handleInputChange = (e) => {
+	const handleInputChange = e => {
 		const target = e.target;
 		setAnswers({
 			...answers,
@@ -53,7 +53,7 @@ export const Questions = () => {
 
 			setAnswers({ ...answers, [stateProperty]: property });
 		} else {
-			let newArray = property.filter((el) => el.tool !== target.id);
+			let newArray = property.filter(el => el.tool !== target.id);
 			setAnswers({ ...answers, [stateProperty]: newArray });
 		}
 	};
@@ -64,7 +64,7 @@ export const Questions = () => {
 				<QuestionContainer>
 					<span>Title Project</span>
 					<InputTextQuestion
-						onChange={(e) => handleInputChange(e)}
+						onChange={e => handleInputChange(e)}
 						type='text'
 						name='project_title'
 						placeholder='Weather'
@@ -73,7 +73,7 @@ export const Questions = () => {
 				<QuestionContainer>
 					<span>Description</span>
 					<TextAreaQuestion
-						onChange={(e) => handleInputChange(e)}
+						onChange={e => handleInputChange(e)}
 						name='description'
 						type='text'
 						placeholder='This application...'
@@ -82,7 +82,7 @@ export const Questions = () => {
 				<QuestionContainer>
 					<span>Installation</span>
 					<TextAreaQuestion
-						onChange={(e) => handleInputChange(e)}
+						onChange={e => handleInputChange(e)}
 						as='textarea'
 						name='installation'
 						placeholder='To run this app you need...'
@@ -92,25 +92,25 @@ export const Questions = () => {
 					<span>App features</span>
 					<div className='grid'>
 						<InputTextQuestion
-							onBlur={(e) => handleMultipleInputs(e, 'features')}
+							onBlur={e => handleMultipleInputs(e, 'features')}
 							name='feature1'
 							type='text'
 							placeholder='Search temperature'
 						/>
 						<InputTextQuestion
-							onBlur={(e) => handleMultipleInputs(e, 'features')}
+							onBlur={e => handleMultipleInputs(e, 'features')}
 							name='feature2'
 							type='text'
 							placeholder='Search weather'
 						/>
 						<InputTextQuestion
-							onBlur={(e) => handleMultipleInputs(e, 'features')}
+							onBlur={e => handleMultipleInputs(e, 'features')}
 							name='feature3'
 							type='text'
 							placeholder='Share your location'
 						/>
 						<InputTextQuestion
-							onBlur={(e) => handleMultipleInputs(e, 'features')}
+							onBlur={e => handleMultipleInputs(e, 'features')}
 							name='feature4'
 							type='text'
 							placeholder='Customize your profile'
@@ -214,7 +214,7 @@ export const Questions = () => {
 								<i className='fa-brands fa-github'></i>
 							</div>
 							<SocialMediaLink
-								onChange={(e) => handleMultipleInputs(e, 'social_links')}
+								onChange={e => handleMultipleInputs(e, 'social_links')}
 								name='github'
 								placeholder='https://github.com/joselatines'
 							/>
@@ -224,7 +224,7 @@ export const Questions = () => {
 								<i className='fa-brands fa-linkedin'></i>
 							</div>
 							<SocialMediaLink
-								onChange={(e) => handleMultipleInputs(e, 'social_links')}
+								onChange={e => handleMultipleInputs(e, 'social_links')}
 								name='linkedin'
 								placeholder='https://www.linkedin.com/in/jose-latines/'
 							/>
@@ -234,7 +234,7 @@ export const Questions = () => {
 								<i className='fa-brands fa-facebook'></i>
 							</div>
 							<SocialMediaLink
-								onChange={(e) => handleMultipleInputs(e, 'social_links')}
+								onChange={e => handleMultipleInputs(e, 'social_links')}
 								name='facebook'
 								placeholder='https://facebook/doctordraxter'
 							/>
@@ -244,7 +244,7 @@ export const Questions = () => {
 								<i className='fa-brands fa-instagram'></i>
 							</div>
 							<SocialMediaLink
-								onChange={(e) => handleMultipleInputs(e, 'social_links')}
+								onChange={e => handleMultipleInputs(e, 'social_links')}
 								name='instagram'
 								placeholder='https://instagram/doctordraxter'
 							/>
@@ -252,7 +252,7 @@ export const Questions = () => {
 					</div>
 				</QuestionContainer>
 			</div>
-			<Link to={`/generated/${answers.project_title}`} state={answers}>
+			<Link to={answers.project_title} state={answers}>
 				<Btn>Generate README</Btn>
 			</Link>
 		</Container>
@@ -283,9 +283,11 @@ const QuestionContainer = styled.div`
 	.grid {
 		display: grid;
 		grid-template-columns: auto auto;
-		align-items: center;
-		justify-content: center;
+		place-items: center;
 		gap: 1rem;
+		@media only screen and (max-width: 40em) {
+			grid-template-columns: auto;
+		}
 	}
 	.linkQuestion {
 		display: flex;
@@ -309,6 +311,7 @@ const QuestionContainer = styled.div`
 	}
 	.imgContainer {
 		display: flex;
+		flex-wrap: wrap;
 		align-items: center;
 		justify-content: center;
 		gap: 2rem;

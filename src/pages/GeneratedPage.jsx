@@ -81,7 +81,7 @@ export const GeneratedPage = () => {
 					</CopyToClipboard>
 				</div>
 			</Preview>
-			<Link to='/generator'>
+			<Link to='/'>
 				<Btn>
 					<i className='fa-solid fa-arrow-left'></i>Back to edit
 				</Btn>

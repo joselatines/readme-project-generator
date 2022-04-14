@@ -11,21 +11,12 @@ export const Navigation = () => {
 			</Link>
 			<ul>
 				<li>
-					<Link to='/generator'>
-						<Btn className='btn'>
-							Generator
-							<i className='fa-solid fa-robot'></i>
-						</Btn>
-					</Link>
-				</li>
-
-				<li>
 					<a
 						href='https://github.com/joselatines/project-description-generator'
 						target='_blank'
 						rel='noopener noreferrer'
 					>
-						<Btn outline className='btn'>
+						<Btn className='btn'>
 							Contribute<i className='fa-solid fa-code-fork'></i>
 						</Btn>
 					</a>
@@ -40,6 +31,7 @@ const Container = styled.nav`
 	overflow: hidden;
 	padding: 1rem;
 	display: flex;
+	flex-wrap: wrap;
 	align-items: center;
 	justify-content: space-between;
 	margin-bottom: 3rem;
@@ -47,6 +39,11 @@ const Container = styled.nav`
 	border-radius: 50px;
 	background: #ffffff;
 	box-shadow: inset 20px 20px 60px #d9d9d9, inset -20px -20px 60px #ffffff;
+
+	@media only screen and (max-width: 40em) {
+		justify-content: center;
+		
+	}
 
 	.logo {
 		font-weight: 800;
