@@ -1,22 +1,16 @@
 import React from 'react';
 import ReactDom from 'react-dom';
-import { BrowserRouter, Routes, Route } from 'react-router-dom';
-
-import { GeneratedPage } from './pages/GeneratedPage';
-import { GeneratorPage } from './pages/GeneratorPage';
+import { BrowserRouter } from 'react-router-dom';
+import { Provider } from 'react-redux';
 import { App } from './App';
-import { NotFoundPage } from './pages/NotFoundPage';
+import { store } from './app/store';
 
 ReactDom.render(
 	<React.StrictMode>
 		<BrowserRouter>
-			<Routes>
-				<Route path='/' element={<App />}>
-					<Route path='/' element={<GeneratorPage />} />
-					<Route path='/:projectTitle' element={<GeneratedPage />} />
-					<Route path='*' element={<NotFoundPage />} />
-				</Route>
-			</Routes>
+			<Provider store={store}>
+				<App />
+			</Provider>
 		</BrowserRouter>
 	</React.StrictMode>,
 	document.getElementById('root')

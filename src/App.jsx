@@ -1,17 +1,16 @@
-import { Fragment } from 'react';
-import { Outlet } from 'react-router-dom';
+import { Route, Routes } from 'react-router-dom';
 
-import { GlobalStyle } from './shared/GlobalStyles';
-import { Navigation } from './shared/Navigation';
-import { Footer } from './shared/Footer';
+import { Layout, NotFound } from './shared/components/index';
+import { Generator, Generated } from './pages/index';
 
 export const App = () => {
 	return (
-		<Fragment>
-			<Navigation />
-			<Outlet />
-		
-			<GlobalStyle />
-		</Fragment>
+		<Routes>
+			<Route path='/' element={<Layout />}>
+				<Route path='/' element={<Generator />} />
+				<Route path='generated' element={<Generated />} />
+				<Route path='*' element={<NotFound />} />
+			</Route>
+		</Routes>
 	);
 };
