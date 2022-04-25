@@ -1,16 +1,15 @@
 import styled from 'styled-components';
 import { VAR } from '../../../shared/styles/GlobalStyles';
 
-export const Container = styled.div`
-	position: relative;
-`;
+export const Container = styled.div``;
 
 export const Input = styled.input`
 	outline: none;
 
-	min-width: 10em;
-	width: 100%;
-	max-width: 20%;
+	min-width: 12rem;
+	/*width: 100%;
+	max-width: 20%; */
+
 	border: solid 2px ${VAR.colors.secondary};
 	border-radius: 5px;
 	padding: 1rem;
@@ -31,7 +30,18 @@ export const Name = styled.span`
 export const TextArea = styled(Input)`
 	min-height: 8em;
 	max-height: 25em;
-	max-width: 100%;
+	min-width: 100%;
 	font-family: unset;
 	resize: vertical;
+`;
+export const DeleteBtn = styled.div`
+	position: absolute;
+	top: 0;
+	right: 0;
+`;
+export const InputContainer = styled.div`
+	position: relative;
+	width: auto;
+	border-radius: 5px;
+	overflow: hidden;
 `;

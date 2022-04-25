@@ -4,10 +4,12 @@ const Button = styled.button`
 	all: unset;
 	cursor: pointer;
 
+	font-size: ${({ size }) => (size ? size : '1em')};
+
 	background-color: ${({ color }) => (color ? color : VAR.colors.primary)};
+	background-color: ${({ danger }) => danger && VAR.colors.danger};
 	color: ${({ color }) => (color ? color : VAR.colors.white)};
 
-	font-size: 1em;
 	padding: 0.5em 2em;
 	border: 3px solid transparent;
 	border-radius: 5px;
@@ -16,6 +18,9 @@ const Button = styled.button`
 	display: flex;
 	place-items: center;
 	gap: 0.5em;
+	i {
+		font-size: 1.2em;
+	}
 
 	transition: all ${VAR.transitions.css};
 	&:hover {

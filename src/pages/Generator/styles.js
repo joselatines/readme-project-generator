@@ -11,3 +11,8 @@ export const InnerContainer = styled.div`
 	grid-template-columns: 1fr;
 	gap: 1rem;
 `;
+export const FlexContainer = styled.div`
+	display: flex;
+	flex-wrap: wrap;
+	gap: 1rem;
+`;

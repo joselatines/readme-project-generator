@@ -4,6 +4,7 @@ export const VAR = {
 	colors: {
 		primary: '#495fe8',
 		secondary: '#101743',
+		danger: '#ef233c',
 		bg: '#F1F2F8',
 		gray: '#666666',
 		dark_gray: '#222',
@@ -56,10 +57,7 @@ export const GlobalStyles = createGlobalStyle`
 		// Project styles
 		padding: 0 7rem;
     }
-    img {
-        width: 100%;
-        object-fit: contain;
-    }
+    
 
 	a {
 		cursor: pointer !important;
