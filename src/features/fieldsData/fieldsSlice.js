@@ -6,12 +6,12 @@ const initialState = {
 		title: '',
 		description: '',
 		installation: '',
-		features: [''],
-		programmingLanguages: [''],
-		frontend: [''],
-		backend: [''],
-		testing: [''],
-		tools: [''],
+		features: [],
+		programmingLanguages: [],
+		frontend: [],
+		backend: [],
+		testing: [],
+		tools: [],
 	},
 	basics: [
 		{
@@ -62,20 +62,23 @@ const initialState = {
 				value: 'html',
 				type: 'checkbox',
 				img: html,
+				name: 'frontend',
 			},
 			{
 				id: 'css',
 				value: 'css',
 				type: 'checkbox',
 				img: css,
+				name: 'frontend',
 			},
 		],
 		backend: [
 			{
-				id: 'css',
-				value: 'css',
+				id: 'python',
+				value: 'python',
 				type: 'checkbox',
 				img: python,
+				name: 'backend',
 			},
 		],
 	},
@@ -103,7 +106,9 @@ const fieldsSlice = createSlice({
 				deleteFeature: true,
 			});
 		},
-
+		fillCheckboxes: (state, action) => {
+			state.template = action.payload;
+		},
 		deleteFeatureField: (state, action) => {
 			const newFeatures = state.features.filter(
 				feature => feature.id !== action.payload
@@ -119,6 +124,7 @@ export const {
 	addFeatureField,
 	deleteFeatureField,
 	fillFeatures,
+	fillCheckboxes,
 } = fieldsSlice.actions;
 
 export default fieldsSlice.reducer;

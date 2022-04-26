@@ -30,7 +30,7 @@ export const Checkmark = styled.span`
 export const Container = styled.div`
 	font-size: 1em;
 	max-width: 10vw;
-	min-width: 3em;
+	min-width: 5em;
 
 	position: relative;
 
