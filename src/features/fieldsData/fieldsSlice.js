@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { css, html, python } from './images';
+import { css, html, python, react } from './images';
 
 const initialState = {
 	template: {
@@ -35,24 +35,29 @@ const initialState = {
 	],
 	features: [
 		{
-			id: 'feature_0',
-			type: 'text',
-			placeholder: 'Example: Search weather',
-		},
-		{
 			id: 'feature_1',
 			type: 'text',
-			placeholder: 'Feature 2',
+			placeholder: 'Feature 1',
 		},
 		{
 			id: 'feature_2',
 			type: 'text',
-			placeholder: 'Feature 3',
+			placeholder: 'Feature 2',
 		},
 		{
 			id: 'feature_3',
 			type: 'text',
+			placeholder: 'Feature 3',
+		},
+		{
+			id: 'feature_4',
+			type: 'text',
 			placeholder: 'Feature 4',
+		},
+		{
+			id: 'feature_5',
+			type: 'text',
+			placeholder: 'Feature 5',
 		},
 	],
 	checkboxes: {
@@ -69,6 +74,13 @@ const initialState = {
 				value: 'css',
 				type: 'checkbox',
 				img: css,
+				name: 'frontend',
+			},
+			{
+				id: 'react',
+				value: 'react',
+				type: 'checkbox',
+				img: react,
 				name: 'frontend',
 			},
 		],
@@ -93,9 +105,6 @@ const fieldsSlice = createSlice({
 		// Pass an obj through params and modifies the template state
 		fillTemplate: (state, action) => {
 			state.template = action.payload;
-		},
-		fillFeatures: (state, action) => {
-			state.template.features = action.payload;
 		},
 		addFeatureField: state => {
 			const id = (state.id += 1);
@@ -123,7 +132,6 @@ export const {
 	fillTemplate,
 	addFeatureField,
 	deleteFeatureField,
-	fillFeatures,
 	fillCheckboxes,
 } = fieldsSlice.actions;
 

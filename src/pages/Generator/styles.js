@@ -6,7 +6,7 @@ export const Container = styled.section`
 	gap: 1rem;
 `;
 
-export const InnerContainer = styled.div`
+export const FieldsContainer = styled.div`
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 1rem;

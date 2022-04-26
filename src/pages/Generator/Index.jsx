@@ -1,11 +1,9 @@
-import { Checkbox, InputField } from '../../components';
-import { Container, FlexContainer, InnerContainer } from './styles';
+import { Checkbox, CheckboxContainer, InputField } from '../../components';
+import { Container, FlexContainer, FieldsContainer } from './styles';
 import { Button } from '../../shared/components';
 import { useSelector, useDispatch } from 'react-redux';
 import {
 	fillTemplate,
-	addFeatureField,
-	fillFeatures,
 	fillCheckboxes,
 } from '../../features/fieldsData/fieldsSlice';
 
@@ -19,7 +17,7 @@ export const Generator = () => {
 
 		dispatch(
 			fillTemplate({
-				...fieldsData.template, // Overwrites template key in the state
+				...fieldsData.template,
 				[key]: value,
 			})
 		);
@@ -50,59 +48,56 @@ export const Generator = () => {
 		}
 	};
 
-	/* 	const handleInputFeature = e => {
-		const key = e.target.id;
+	const handleInputFeature = e => {
+		const id = e.target.id;
 		const value = e.target.value;
 
 		dispatch(
-			fillFeatures([
-				...fieldsData.template.features,
-				{
-					...fieldsData.template.features,
-					[key]: value,
-				},
-			])
+			fillTemplate({
+				...fieldsData.template,
+				features: { ...fieldsData.template.features, [id]: value },
+			})
 		);
-	}; */
+	};
 
 	return (
 		<Container>
-			<InnerContainer>
+			<FieldsContainer>
 				{fieldsData.basics.map(({ ...data }, i) => (
 					<InputField key={i} {...data} onChange={e => handleInputChange(e)} />
 				))}
-			</InnerContainer>
-			{/* <div>
+			</FieldsContainer>
+
+			<FieldsContainer>
 				<span>Project features</span>
-				<div>
-					<FeaturesContainer>
-						{fieldsData.features.map(({ ...data }, i) => (
-							<InputField
-								{...data}
-								key={i}
-								onChange={e => handleInputFeature(e)}
-							/>
-						))}
-					</FeaturesContainer>
-					<Button onClick={() => dispatch(addFeatureField())}>+</Button>
-				</div>
-			</div> */}
-			<InnerContainer>
+				<FlexContainer>
+					{fieldsData.features.map(({ ...data }, i) => (
+						<InputField
+							{...data}
+							key={i}
+							onChange={e => handleInputFeature(e)}
+						/>
+					))}
+				</FlexContainer>
+			</FieldsContainer>
+
+			<FieldsContainer>
 				<h1>Frontend development</h1>
 				<FlexContainer>
 					{fieldsData.checkboxes.frontend.map(({ ...data }) => (
 						<Checkbox key={data.id} {...data} handleCheckbox={handleCheckbox} />
 					))}
 				</FlexContainer>
-			</InnerContainer>
-			<InnerContainer>
+			</FieldsContainer>
+
+			<FieldsContainer>
 				<h1>Backend development</h1>
 				<FlexContainer>
 					{fieldsData.checkboxes.backend.map(({ ...data }) => (
 						<Checkbox key={data.id} {...data} handleCheckbox={handleCheckbox} />
 					))}
 				</FlexContainer>
-			</InnerContainer>
+			</FieldsContainer>
 		</Container>
 	);
 };
