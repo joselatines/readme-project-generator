@@ -5,6 +5,7 @@ const Button = styled.button`
 	cursor: pointer;
 
 	font-size: ${({ size }) => (size ? size : '1em')};
+	text-align: center;
 
 	background-color: ${({ color }) => (color ? color : VAR.colors.primary)};
 	background-color: ${({ danger }) => danger && VAR.colors.danger};
@@ -16,7 +17,8 @@ const Button = styled.button`
 
 	// For icons
 	display: flex;
-	place-items: center;
+	align-items: center;
+	justify-content: center;
 	gap: 0.5em;
 	i {
 		font-size: 1.2em;

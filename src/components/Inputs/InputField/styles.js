@@ -7,14 +7,12 @@ export const Input = styled.input`
 	outline: none;
 
 	min-width: 12rem;
-	/*width: 100%;
-	max-width: 20%; */
 
-	border: solid 2px ${VAR.colors.secondary};
+	border: solid 3px ${VAR.colors.secondary};
 	border-radius: 5px;
 	padding: 1rem;
 	&:focus {
-		border: solid 2px ${VAR.colors.primary};
+		border-color: ${VAR.colors.primary};
 	}
 `;
 
@@ -22,9 +20,6 @@ export const Name = styled.span`
 	display: block; // Because it is a span
 	font-weight: 500;
 
-	/* 	position: absolute;
-	transform: translate(1em, -50%);
-	top: 50%; */
 	cursor: unset;
 `;
 export const TextArea = styled(Input)`

@@ -1,5 +1,5 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { css, html, python, react } from './images';
+import { css, html, python, react, jest, photoshop } from './images';
 
 const initialState = {
 	template: {
@@ -91,6 +91,24 @@ const initialState = {
 				type: 'checkbox',
 				img: python,
 				name: 'backend',
+			},
+		],
+		testing: [
+			{
+				id: 'jest',
+				value: 'jest',
+				type: 'checkbox',
+				img: jest,
+				name: 'testing',
+			},
+		],
+		tools: [
+			{
+				id: 'photoshop',
+				value: 'photoshop',
+				type: 'checkbox',
+				img: photoshop,
+				name: 'tools',
 			},
 		],
 	},

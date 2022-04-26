@@ -3,10 +3,10 @@ import styled from 'styled-components';
 export const Container = styled.section`
 	display: grid;
 	grid-template-columns: 1fr;
-	gap: 1rem;
+	gap: 2rem;
 `;
 
-export const FieldsContainer = styled.div`
+export const FieldsContainer = styled.section`
 	display: grid;
 	grid-template-columns: 1fr;
 	gap: 1rem;

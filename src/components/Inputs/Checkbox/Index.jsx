@@ -1,14 +1,24 @@
-import { Checkmark, Container, Label } from './styles';
+import { useState } from 'react';
+import { Container, InnerContainer } from './styles';
 
 const Checkbox = ({ handleCheckbox, ...data }) => {
+	const [isCheck, setIsCheck] = useState(false);
+	const capitalize = str => str.charAt(0).toUpperCase() + str.slice(1);
+
 	return (
 		<label htmlFor={data.id}>
-			<Container>
-				<img src={data.img} alt={data.id} />
-				<p>{data.id}</p>
+			<Container checked={isCheck}>
+				<InnerContainer>
+					<img src={data.img} alt={data.id} />
+					<p>{capitalize(data.id)}</p>
+				</InnerContainer>
 
-				<input {...data} onChange={e => handleCheckbox(e, data)} />
-				<Checkmark></Checkmark>
+				<input
+					{...data}
+					onClick={() => setIsCheck(!isCheck)}
+					onChange={e => handleCheckbox(e, data)}
+				/>
+				<i className='fa-solid fa-circle-check'></i>
 			</Container>
 		</label>
 	);
