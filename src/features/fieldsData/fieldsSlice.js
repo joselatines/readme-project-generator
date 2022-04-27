@@ -22,7 +22,7 @@ import {
 	typescript,
 	xd,
 	illustrator,
-	figma
+	figma,
 } from './images';
 
 const initialState = {
@@ -30,7 +30,7 @@ const initialState = {
 		title: '',
 		description: '',
 		installation: '',
-		features: [],
+		features: {},
 		programmingLanguages: [],
 		frontend: [],
 		backend: [],
@@ -232,7 +232,6 @@ const initialState = {
 			},
 		],
 	},
-
 	id: 0,
 };
 
@@ -263,6 +262,19 @@ const fieldsSlice = createSlice({
 			state.template.features = newFeatures;
 			state.features = newFeatures;
 		},
+		resetFields: state => {
+			state.template = {
+				title: '',
+				description: '',
+				installation: '',
+				features: [],
+				programmingLanguages: [],
+				frontend: [],
+				backend: [],
+				testing: [],
+				tools: [],
+			};
+		},
 	},
 });
 
@@ -271,6 +283,7 @@ export const {
 	addFeatureField,
 	deleteFeatureField,
 	fillCheckboxes,
+	resetFields,
 } = fieldsSlice.actions;
 
 export default fieldsSlice.reducer;
