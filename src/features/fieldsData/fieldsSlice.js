@@ -199,7 +199,7 @@ const initialState = {
 		],
 		testing: [
 			{
-				id: 'jest',
+				id: 'jest-id',
 				value: 'jest',
 				img: jest,
 				name: 'testing',
