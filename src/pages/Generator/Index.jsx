@@ -1,11 +1,10 @@
-import { Checkbox, CheckboxContainer, InputField } from '../../components';
+import { Link } from 'react-router-dom';
+import { useSelector, useDispatch } from 'react-redux';
+import { fillTemplate } from '../../features/fieldsData/fieldsSlice';
+
+import { CheckboxContainer, InputField } from '../../components';
 import { Container, FlexContainer, FieldsContainer } from './styles';
 import { Button } from '../../shared/components';
-import { useSelector, useDispatch } from 'react-redux';
-import {
-	fillTemplate,
-	fillCheckboxes,
-} from '../../features/fieldsData/fieldsSlice';
 
 export const Generator = () => {
 	const { fieldsData } = useSelector(state => state);
@@ -65,7 +64,6 @@ export const Generator = () => {
 					/>
 				))}
 			</FieldsContainer>
-
 			<FieldsContainer>
 				<span>Project features</span>
 				<FlexContainer>
@@ -78,12 +76,12 @@ export const Generator = () => {
 					))}
 				</FlexContainer>
 			</FieldsContainer>
-
 			{checkboxes.map(({ ...checkboxData }) => (
 				<CheckboxContainer key={checkboxData.title} {...checkboxData} />
 			))}
-
-			<Button>Generate</Button>
+			<Link to='/generated'>
+				<Button>Generate</Button>
+			</Link>
 		</Container>
 	);
 };

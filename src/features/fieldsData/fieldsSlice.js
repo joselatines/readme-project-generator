@@ -1,5 +1,29 @@
 import { createSlice } from '@reduxjs/toolkit';
-import { css, html, python, react, jest, photoshop } from './images';
+import {
+	css,
+	html,
+	python,
+	react,
+	jest,
+	photoshop,
+	cPlusPlus,
+	cSharp,
+	java,
+	nodejs,
+	php,
+	swift,
+	angular,
+	vue,
+	babel,
+	bootstrap,
+	javascript,
+	redux,
+	sass,
+	typescript,
+	xd,
+	illustrator,
+	figma
+} from './images';
 
 const initialState = {
 	template: {
@@ -65,22 +89,67 @@ const initialState = {
 			{
 				id: 'html',
 				value: 'html',
-				type: 'checkbox',
 				img: html,
 				name: 'frontend',
 			},
 			{
 				id: 'css',
 				value: 'css',
-				type: 'checkbox',
 				img: css,
+				name: 'frontend',
+			},
+			{
+				id: 'javascript',
+				value: 'javascript',
+				img: javascript,
+				name: 'frontend',
+			},
+			{
+				id: 'typescript',
+				value: 'typescript',
+				img: typescript,
 				name: 'frontend',
 			},
 			{
 				id: 'react',
 				value: 'react',
-				type: 'checkbox',
 				img: react,
+				name: 'frontend',
+			},
+			{
+				id: 'angular',
+				value: 'angular',
+				img: angular,
+				name: 'frontend',
+			},
+			{
+				id: 'vue',
+				value: 'vue',
+				img: vue,
+				name: 'frontend',
+			},
+			{
+				id: 'redux',
+				value: 'redux',
+				img: redux,
+				name: 'frontend',
+			},
+			{
+				id: 'babel',
+				value: 'babel',
+				img: babel,
+				name: 'frontend',
+			},
+			{
+				id: 'bootstrap',
+				value: 'bootstrap',
+				img: bootstrap,
+				name: 'frontend',
+			},
+			{
+				id: 'sass',
+				value: 'sass',
+				img: sass,
 				name: 'frontend',
 			},
 		],
@@ -88,8 +157,43 @@ const initialState = {
 			{
 				id: 'python',
 				value: 'python',
-				type: 'checkbox',
 				img: python,
+				name: 'backend',
+			},
+			{
+				id: 'cPlusPlus',
+				value: 'c++',
+				img: cPlusPlus,
+				name: 'backend',
+			},
+			{
+				id: 'cSharp',
+				value: 'c#',
+				img: cSharp,
+				name: 'backend',
+			},
+			{
+				id: 'php',
+				value: 'php',
+				img: php,
+				name: 'backend',
+			},
+			{
+				id: 'java',
+				value: 'java',
+				img: java,
+				name: 'backend',
+			},
+			{
+				id: 'nodejs',
+				value: 'node',
+				img: nodejs,
+				name: 'backend',
+			},
+			{
+				id: 'swift',
+				value: 'swift',
+				img: swift,
 				name: 'backend',
 			},
 		],
@@ -97,7 +201,6 @@ const initialState = {
 			{
 				id: 'jest',
 				value: 'jest',
-				type: 'checkbox',
 				img: jest,
 				name: 'testing',
 			},
@@ -106,8 +209,25 @@ const initialState = {
 			{
 				id: 'photoshop',
 				value: 'photoshop',
-				type: 'checkbox',
 				img: photoshop,
+				name: 'tools',
+			},
+			{
+				id: 'xd',
+				value: 'xd',
+				img: xd,
+				name: 'tools',
+			},
+			{
+				id: 'illustrator',
+				value: 'illustrator',
+				img: illustrator,
+				name: 'tools',
+			},
+			{
+				id: 'figma',
+				value: 'figma',
+				img: figma,
 				name: 'tools',
 			},
 		],

@@ -10,11 +10,12 @@ const Checkbox = ({ handleCheckbox, ...data }) => {
 			<Container checked={isCheck}>
 				<InnerContainer>
 					<img src={data.img} alt={data.id} />
-					<p>{capitalize(data.id)}</p>
+					<p>{capitalize(data.value)}</p>
 				</InnerContainer>
 
 				<input
 					{...data}
+					type='checkbox'
 					onClick={() => setIsCheck(!isCheck)}
 					onChange={e => handleCheckbox(e, data)}
 				/>

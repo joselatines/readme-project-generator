@@ -60,6 +60,7 @@ export const GlobalStyles = createGlobalStyle`
     
 
 	a {
-		cursor: pointer !important;
+		cursor: pointer;
+		all: unset;
 	}
 `;
