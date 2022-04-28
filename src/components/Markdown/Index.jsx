@@ -1,102 +1,118 @@
 import { useEffect, useState } from 'react';
-import ReactMarkdown from 'react-markdown';
-import { useSelector } from 'react-redux';
-import remarkGfm from 'remark-gfm';
+import { Link } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
+
+import parse from 'html-react-parser';
+import showdown from 'showdown';
+import { CopyToClipboard } from 'react-copy-to-clipboard';
+
+import { Container, ContainerPreview, Buttons } from './styles';
+import { Button } from '../../shared/components';
+
 import { capitalize } from '../../shared/functions/stringModifiers';
-import { Container } from './styles';
+import { resetFields } from '../../features/fieldsData/fieldsSlice';
 
 const Markdown = () => {
-	const templateMarkdown = `# Title
-    ## Description
-    Brief description
-    
-    ## Installation
-    Brief installation description
-    
-    ## Project features
-    - Feature 1
-    - Feature 2
-    
-    ## Frontend development
-    ![Tor](https://img.shields.io/badge/Tor-7D4698?style=for-the-badge&logo=Tor-Browser&logoColor=white)
-    
-    ## Backend development
-    ![Tor](https://img.shields.io/badge/Tor-7D4698?style=for-the-badge&logo=Tor-Browser&logoColor=white)
-    
-    ## Testing 
-    ![Tor](https://img.shields.io/badge/Tor-7D4698?style=for-the-badge&logo=Tor-Browser&logoColor=white)
-    
-    ## Tools 
-    ![Tor](https://img.shields.io/badge/Tor-7D4698?style=for-the-badge&logo=Tor-Browser&logoColor=white)`;
-	const [MD, setMD] = useState(`5`);
+	const [markdown, setMarkdown] = useState(`# Example`);
+	const [html, setHtml] = useState(`<h1>Example</h1>`);
+
+	const dispatch = useDispatch();
+
 	const template = useSelector(state => state.fieldsData.template);
 
 	useEffect(() => {
-		const title = template.title.length >= 1 ? `# ${template.title} 💻` : '';
-		const description =
-			template.description.length >= 1
-				? `# Description \n ${template.description} 📚`
-				: '';
-		const installation =
-			template.installation.length >= 1
-				? `# Installation \n ${template.installation} 💡`
-				: '';
+		let txt = ``;
+		const formatTemplate = () => {
+			const title = template.title.length >= 1 ? `# ${template.title} 💻` : '';
+			const description =
+				template.description.length >= 1
+					? `## Description \n ${template.description} 📚`
+					: '';
+			const installation =
+				template.installation.length >= 1
+					? `## Installation \n ${template.installation} 💡`
+					: '';
 
-		const displayFeatures = features => {
-			const values = Object.values(features);
-			let format;
+			const displayFeatures = features => {
+				const values = Object.values(features);
+				let format = ``;
 
-			if (values.length >= 1) {
-				const featuresList = values
-					.filter(value => value.length >= 1) // Only fill strings
-					.map(value => `- ${value}`)
-					.join('\n');
+				if (values.length >= 1) {
+					const featuresList = values
+						.filter(value => value.length >= 1) // Only fill strings
+						.map(value => `- ${value}`)
+						.join('\n');
 
-				format = `# App features \n ${featuresList}`;
+					format = `## App features \n ${featuresList}`;
+					return format;
+				}
 				return format;
-			}
-			return format;
+			};
+
+			const displayCheckboxes = (checkboxes, title) => {
+				let format = ``;
+
+				if (checkboxes.length >= 1) {
+					const list = checkboxes
+						.map(
+							({ value }) =>
+								`![${capitalize(
+									value
+								)}](https://img.shields.io/badge/${value}-9558B2.svg?style=for-the-badge&logo=${value})`
+						)
+						.join(' ');
+
+					format = `${title} \n ${list}`;
+					return format;
+				}
+
+				return format;
+			};
+
+			txt =
+				`${title}\n` +
+				`${description}\n` +
+				`${installation} \n` +
+				`${displayFeatures(template.features)} \n` +
+				`${displayCheckboxes(
+					template.frontend,
+					'## Frontend Development'
+				)} \n` +
+				`${displayCheckboxes(template.backend, '## Backend Development')} \n` +
+				`${displayCheckboxes(template.testing, '## Testing')} \n` +
+				`${displayCheckboxes(template.tools, '## Tools')}`;
 		};
 
-		const displayCheckboxes = (checkboxes, title) => {
-			let format = ``;
+		formatTemplate();
+		const converter = new showdown.Converter();
+		const htmlConverted = converter.makeHtml(txt);
 
-			if (checkboxes.length >= 1) {
-				const list = checkboxes
-					.map(
-						({ value }) =>
-							`![${capitalize(
-								value
-							)}](https://img.shields.io/badge/${value}-9558B2.svg?style=for-the-badge&logo=${value})`
-					)
-					.join(' ');
-
-				format = `${title} \n ${list}`;
-				return format;
-			}
-
-			return format;
-		};
-		const markdownTemplate = `
-		${title}
-		${description}\n
-		${installation} \n
-		${displayFeatures(template.features)} \n
-		${displayCheckboxes(template.frontend, 'Frontend Development')} \n
-		${displayCheckboxes(template.backend, 'Backend Development')} \n
-		${displayCheckboxes(template.testing, 'Testing')} \n
-		${displayCheckboxes(template.tools, 'Tools')}
-
-		`;
-
-		setMD(markdownTemplate);
-	}, [MD]);
+		setMarkdown(txt);
+		setHtml(htmlConverted);
+	}, []);
 
 	return (
 		<Container>
-			<h1>Markdown</h1>
 			<div>
-				<ReactMarkdown children={MD} remarkPlugins={[remarkGfm]} />
+				<h1>Markdown</h1>
+				<ContainerPreview>{markdown}</ContainerPreview>
+				<Buttons>
+					<Link to='/'>
+						<Button onClick={() => dispatch(resetFields())}>
+							<i className='fa-solid fa-arrow-left-long'></i>
+							<span>Back to edit</span>
+						</Button>
+					</Link>
+					<CopyToClipboard text={markdown}>
+						<Button onClick={() => console.log(markdown)}>
+							<i className='fa-solid fa-copy'></i>Copy to clipboard
+						</Button>
+					</CopyToClipboard>
+				</Buttons>
+			</div>
+			<div>
+				<h1>Preview</h1>
+				<ContainerPreview>{parse(html)}</ContainerPreview>
 			</div>
 		</Container>
 	);

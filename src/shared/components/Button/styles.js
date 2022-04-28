@@ -6,6 +6,7 @@ const Button = styled.button`
 
 	font-size: ${({ size }) => (size ? size : '1em')};
 	text-align: center;
+	width: max-content;
 
 	background-color: ${({ color }) => (color ? color : VAR.colors.primary)};
 	background-color: ${({ danger }) => danger && VAR.colors.danger};
