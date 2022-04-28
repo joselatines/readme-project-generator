@@ -5,6 +5,12 @@ export const Container = styled.section`
 	gap: 10rem;
 	justify-content: space-between;
 	grid-template-columns: repeat(2, auto);
+
+	@media screen and (max-width: 50em) {
+		gap: 3rem;
+		justify-content: center;
+		grid-template-columns: auto;
+	}
 `;
 
 export const Title = styled.span`

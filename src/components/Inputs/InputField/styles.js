@@ -6,7 +6,7 @@ export const Container = styled.div``;
 export const Input = styled.input`
 	outline: none;
 
-	min-width: 12rem;
+	min-width: 10rem;
 
 	border: solid 3px ${VAR.colors.secondary};
 	border-radius: 5px;

@@ -104,7 +104,7 @@ const Markdown = () => {
 						</Button>
 					</StyledLink>
 					<CopyToClipboard text={markdown}>
-						<Button onClick={() => console.log(markdown)}>
+						<Button outline={true} onClick={() => console.log(markdown)}>
 							<i className='fa-solid fa-copy'></i>Copy to clipboard
 						</Button>
 					</CopyToClipboard>

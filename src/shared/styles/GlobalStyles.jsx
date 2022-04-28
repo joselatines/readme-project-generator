@@ -22,7 +22,7 @@ export const VAR = {
 		black: 900,
 	},
 	mediaQueries: {
-		responsive: '40em',
+		responsive: '50em',
 		mobile: '315px',
 		mobile_l: '425px',
 		mobile_xl: '535px',
@@ -58,11 +58,15 @@ export const GlobalStyles = createGlobalStyle`
 		// Project styles
 		padding: 0 7rem;
 		position: relative;
+		@media screen and (max-width:50em) {
+			padding: 0 1rem;
+		}
     }
 
 	a {
 		all: unset;
 		cursor: pointer;
+		width: fit-content;
 		&:hover {
 			color: ${VAR.colors.primary};
 		}

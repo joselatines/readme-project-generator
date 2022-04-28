@@ -3,10 +3,14 @@ import { VAR } from '../../../shared/styles/GlobalStyles';
 
 export const Container = styled.div`
 	font-size: clamp(1em, 1vw, 5em);
-	max-height: 30vh;
-	min-height: 22vh;
+	/* max-height: 30vh;
+	min-height: 22vh; */
+	min-width: 10vw;
+	max-height: 22vh;
+	height: 20vh;
 
 	position: relative;
+	cursor: pointer;
 
 	display: grid;
 	place-items: center;
@@ -27,8 +31,9 @@ export const Container = styled.div`
 	}
 
 	input[type='checkbox'] {
-		position: absolute;
 		all: unset;
+		position: absolute;
+
 		&:checked ~ i {
 			display: block;
 		}
@@ -36,14 +41,16 @@ export const Container = styled.div`
 `;
 
 export const InnerContainer = styled.div`
-	min-width: 4em;
-	max-width: 30vw;
+	/* min-width: 4em;
+	max-width: 30vw; */
+
 	display: grid;
 	place-items: center;
 
 	img {
-		max-width: 6vw;
-		min-width: 4em;
-		object-fit: contain;
+		min-width: 3rem;
+		width: 4rem;
+		max-width: 8vw;
+		object-fit: cover;
 	}
 `;

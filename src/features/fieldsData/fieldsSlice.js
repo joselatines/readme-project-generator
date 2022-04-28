@@ -27,7 +27,7 @@ import {
 
 const initialState = {
 	template: {
-		title: '',
+		title: 'Here is your project title',
 		description: '',
 		installation: '',
 		features: {},
@@ -82,6 +82,11 @@ const initialState = {
 			id: 'feature_5',
 			type: 'text',
 			placeholder: 'Feature 5',
+		},
+		{
+			id: 'feature_6',
+			type: 'text',
+			placeholder: 'Feature 6',
 		},
 	],
 	checkboxes: {

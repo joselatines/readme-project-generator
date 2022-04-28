@@ -12,9 +12,11 @@ const Nav = () => {
 				</StyledLink>
 			</Column>
 			<Column>
-				<Button outline={true}>
-					<i className='fa-solid fa-gear'></i>Generate
-				</Button>
+				<StyledLink to='/generated'>
+					<Button outline={true}>
+						<i className='fa-solid fa-gear'></i>Generate
+					</Button>
+				</StyledLink>
 			</Column>
 		</Container>
 	);

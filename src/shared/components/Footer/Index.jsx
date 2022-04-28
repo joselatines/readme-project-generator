@@ -26,13 +26,21 @@ const Footer = () => {
 				<Ul>
 					<UlTitle>Useful link</UlTitle>
 					<Li>
-						<a href='http://' target='_blank' rel='noopener noreferrer'>
+						<a
+							href='https://github.com/joselatines/readme-project-generator'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
 							Fork this project
 						</a>
 					</Li>
 					<Li>
-						<a href='http://' target='_blank' rel='noopener noreferrer'>
-							Fork this project
+						<a
+							href='https://paypal.me/joselatines33?country.x=VE&locale.x=es_XC'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							Support this project
 						</a>
 					</Li>
 				</Ul>

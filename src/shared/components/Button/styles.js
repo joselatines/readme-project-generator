@@ -25,6 +25,10 @@ const Button = styled.button`
 		font-size: 1.2em;
 	}
 
+	a {
+		all: unset;
+	}
+
 	transition: all ${VAR.transitions.css};
 	&:hover {
 		transform: scale(1.05);

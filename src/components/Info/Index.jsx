@@ -13,7 +13,7 @@ const Info = () => {
 					</p>
 				</InfoContainer>
 				<InfoContainer>
-					<Title>Support</Title>
+					<Title>Goals</Title>
 					<Content>
 						<ul>
 							<li>Buy a own domain</li>
@@ -21,7 +21,13 @@ const Info = () => {
 						</ul>
 					</Content>
 					<Button>
-						<i className='fa-solid fa-hand-holding-dollar'></i>Paypal
+						<a
+							href='https://paypal.me/joselatines33?country.x=VE&locale.x=es_XC'
+							target='_blank'
+							rel='noopener noreferrer'
+						>
+							<i className='fa-solid fa-hand-holding-dollar'></i>Paypal
+						</a>
 					</Button>
 				</InfoContainer>
 			</div>
@@ -29,12 +35,18 @@ const Info = () => {
 				<Title>Contribute</Title>
 				<Content>
 					<p>
-						If you want to contribute this project by adding, fixing, etc
-						features you can make through a pull request
+						If you want to contribute this project by adding, fixing features
+						you can make it through a pull request.
 					</p>
 				</Content>
 				<Button>
-					<i className='fa-solid fa-code-fork'></i>Fork
+					<a
+						href='https://github.com/joselatines/readme-project-generator'
+						target='_blank'
+						rel='noopener noreferrer'
+					>
+						<i className='fa-solid fa-code-fork'></i>Fork
+					</a>
 				</Button>
 			</InfoContainer>
 		</Container>

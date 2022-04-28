@@ -11,7 +11,7 @@ export const Checkboxes = styled.div`
 	display: flex;
 	flex-wrap: wrap;
 	gap: 1rem;
-	@media only screen and (max-width: 40em) {
+	@media only screen and (max-width: 50em) {
 		justify-content: center;
 		align-items: center;
 	}
