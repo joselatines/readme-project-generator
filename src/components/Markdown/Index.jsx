@@ -93,8 +93,6 @@ const Markdown = () => {
 
 	return (
 		<Container>
-	{/* 		<Toaster /> */}
-
 			<h1>Markdown</h1>
 			<ContainerPreview>{parse(html)}</ContainerPreview>
 			<Buttons>
@@ -104,17 +102,12 @@ const Markdown = () => {
 						<span>Back to edit</span>
 					</Button>
 				</StyledLink>
-				{<CopyToClipboard text={markdown}>
+				<CopyToClipboard text={markdown}>
 					<Button outline={true} onClick={() => console.log(1)}>
 						<i className='fa-solid fa-copy'></i>Copy to clipboard
 					</Button>
-				</CopyToClipboard>}
+				</CopyToClipboard>
 			</Buttons>
-
-			{/* <div>
-				<h1>Preview</h1>
-				<ContainerPreview>{parse(html)}</ContainerPreview>
-			</div> */}
 		</Container>
 	);
 };
