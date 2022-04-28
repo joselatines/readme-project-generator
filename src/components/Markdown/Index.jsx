@@ -1,11 +1,11 @@
 import { useEffect, useState } from 'react';
-import { Link } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
 
 import parse from 'html-react-parser';
 import showdown from 'showdown';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
+import { StyledLink } from '../../shared/styles/GlobalStyles';
 import { Container, ContainerPreview, Buttons } from './styles';
 import { Button } from '../../shared/components';
 
@@ -39,7 +39,7 @@ const Markdown = () => {
 
 				if (values.length >= 1) {
 					const featuresList = values
-						.filter(value => value.length >= 1) // Only fill strings
+						.filter(value => value.length >= 1) // Only strings with content
 						.map(value => `- ${value}`)
 						.join('\n');
 
@@ -97,12 +97,12 @@ const Markdown = () => {
 				<h1>Markdown</h1>
 				<ContainerPreview>{markdown}</ContainerPreview>
 				<Buttons>
-					<Link to='/'>
+					<StyledLink to='/'>
 						<Button onClick={() => dispatch(resetFields())}>
 							<i className='fa-solid fa-arrow-left-long'></i>
 							<span>Back to edit</span>
 						</Button>
-					</Link>
+					</StyledLink>
 					<CopyToClipboard text={markdown}>
 						<Button onClick={() => console.log(markdown)}>
 							<i className='fa-solid fa-copy'></i>Copy to clipboard

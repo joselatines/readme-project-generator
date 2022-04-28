@@ -6,8 +6,8 @@ import Nav from '../Nav/Index';
 const Layout = () => (
 	<>
 		<Nav />
-		{/* Outlet display elements base in de URL from react router */}
-		<main>
+		{/* Outlet display elements base in de URL from react router dom*/}
+		<main style={{ padding: '10rem 0' }}> {/* For the absolute nav */}
 			<Outlet />
 		</main>
 		<Footer />

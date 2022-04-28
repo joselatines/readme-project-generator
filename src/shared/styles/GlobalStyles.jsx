@@ -1,4 +1,5 @@
-import { createGlobalStyle } from 'styled-components';
+import { Link } from 'react-router-dom';
+import styled, { createGlobalStyle } from 'styled-components';
 
 export const VAR = {
 	colors: {
@@ -56,11 +57,21 @@ export const GlobalStyles = createGlobalStyle`
 		}
 		// Project styles
 		padding: 0 7rem;
+		position: relative;
     }
-    
 
 	a {
-		cursor: pointer;
 		all: unset;
+		cursor: pointer;
+		&:hover {
+			color: ${VAR.colors.primary};
+		}
+	}
+
+	`;
+
+export const StyledLink = styled(Link)`
+	&:hover {
+		color: unset;
 	}
 `;

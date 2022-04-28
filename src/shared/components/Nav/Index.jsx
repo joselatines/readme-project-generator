@@ -1,20 +1,19 @@
-import { Link } from 'react-router-dom';
-import Button from '../Button/styles';
-
 import { Column, Container } from './styles';
+import { StyledLink } from '../../styles/GlobalStyles';
+import Button from '../Button/styles';
 
 const Nav = () => {
 	return (
 		<Container>
 			<Column>
-				<Link to='/' style={{ all: 'unset' }}>
+				<StyledLink to='/'>
 					<b>README </b>
 					<span>project generator</span>
-				</Link>
+				</StyledLink>
 			</Column>
 			<Column>
 				<Button outline={true}>
-					<i className='fa-solid fa-arrow-left'></i> Boton
+					<i className='fa-solid fa-gear'></i>Generate
 				</Button>
 			</Column>
 		</Container>

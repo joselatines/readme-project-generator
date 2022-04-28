@@ -1,16 +1,12 @@
-import { useDispatch } from 'react-redux';
-import { Link } from 'react-router-dom';
-import { Markdown } from '../../components';
-
+import { Info, Markdown } from '../../components';
+import { Container } from './styles';
 
 const Generated = () => {
-	const dispatch = useDispatch();
-
 	return (
-		<div>
+		<Container>
 			<Markdown />
-			
-		</div>
+			<Info />
+		</Container>
 	);
 };
 

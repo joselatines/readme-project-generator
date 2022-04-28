@@ -1,12 +1,15 @@
-import { Link } from 'react-router-dom';
+import { StyledLink } from '../../styles/GlobalStyles';
+import Button from '../Button/styles';
 
 const NotFound = () => {
 	return (
 		<div>
 			Error 404 - Page not found <br />
-			<Link to='/'>
-				<i className='fa-solid fa-arrow-left'></i> Go home
-			</Link>
+			<StyledLink to='/'>
+				<Button>
+					<i className='fa-solid fa-arrow-left'></i> Go home
+				</Button>
+			</StyledLink>
 		</div>
 	);
 };
