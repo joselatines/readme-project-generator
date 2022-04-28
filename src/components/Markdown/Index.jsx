@@ -93,27 +93,28 @@ const Markdown = () => {
 
 	return (
 		<Container>
-			<div>
-				<h1>Markdown</h1>
-				<ContainerPreview>{markdown}</ContainerPreview>
-				<Buttons>
-					<StyledLink to='/'>
-						<Button onClick={() => dispatch(resetFields())}>
-							<i className='fa-solid fa-arrow-left-long'></i>
-							<span>Back to edit</span>
-						</Button>
-					</StyledLink>
-					<CopyToClipboard text={markdown}>
-						<Button outline={true} onClick={() => console.log(markdown)}>
-							<i className='fa-solid fa-copy'></i>Copy to clipboard
-						</Button>
-					</CopyToClipboard>
-				</Buttons>
-			</div>
-			<div>
+	{/* 		<Toaster /> */}
+
+			<h1>Markdown</h1>
+			<ContainerPreview>{parse(html)}</ContainerPreview>
+			<Buttons>
+				<StyledLink to='/'>
+					<Button onClick={() => dispatch(resetFields())}>
+						<i className='fa-solid fa-arrow-left-long'></i>
+						<span>Back to edit</span>
+					</Button>
+				</StyledLink>
+				{<CopyToClipboard text={markdown}>
+					<Button outline={true} onClick={() => console.log(1)}>
+						<i className='fa-solid fa-copy'></i>Copy to clipboard
+					</Button>
+				</CopyToClipboard>}
+			</Buttons>
+
+			{/* <div>
 				<h1>Preview</h1>
 				<ContainerPreview>{parse(html)}</ContainerPreview>
-			</div>
+			</div> */}
 		</Container>
 	);
 };

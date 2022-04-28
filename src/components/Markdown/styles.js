@@ -3,13 +3,11 @@ import { VAR } from '../../shared/styles/GlobalStyles';
 
 export const Container = styled.section`
 	display: grid;
-	grid-template-columns: repeat(2, auto);
+	grid-template-columns: 1fr;
 	grid-auto-rows: auto;
 	gap: 2rem;
 	@media screen and (max-width: 50em) {
 		font-size: smaller;
-		grid-template-columns: 1fr;
-		grid-template-rows: repeat(2, auto);
 	}
 `;
 export const ContainerPreview = styled.div`
