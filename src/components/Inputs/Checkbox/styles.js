@@ -12,6 +12,11 @@ export const Container = styled.div`
 	position: relative;
 	cursor: pointer;
 
+	transition: 0.3s;
+	&:hover {
+		transform: translateY(-5px);
+	}
+
 	display: grid;
 	place-items: center;
 	padding: 0.8em;
@@ -49,8 +54,8 @@ export const InnerContainer = styled.div`
 
 	img {
 		min-width: 3rem;
-		width: 4rem;
-		max-width: 8vw;
+		width: 4vw;
+		max-width: 10vw;
 		object-fit: cover;
 	}
 `;

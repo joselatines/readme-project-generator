@@ -26,11 +26,11 @@ const Markdown = () => {
 			const title = template.title.length >= 1 ? `# ${template.title} 💻` : '';
 			const description =
 				template.description.length >= 1
-					? `## Description \n ${template.description} 📚`
+					? `## Description 📚\n ${template.description} `
 					: '';
 			const installation =
 				template.installation.length >= 1
-					? `## Installation \n ${template.installation} 💡`
+					? `## Installation 💡 \n ${template.installation}`
 					: '';
 
 			const displayFeatures = features => {
@@ -43,7 +43,7 @@ const Markdown = () => {
 						.map(value => `- ${value}`)
 						.join('\n');
 
-					format = `## App features \n ${featuresList}`;
+					format = `## App features 🪐\n ${featuresList}`;
 					return format;
 				}
 				return format;

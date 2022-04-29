@@ -96,12 +96,14 @@ const initialState = {
 				value: 'html',
 				img: html,
 				name: 'frontend',
+				color: '%23F24E1E',
 			},
 			{
 				id: 'css',
 				value: 'css',
 				img: css,
 				name: 'frontend',
+				color: '23F24E1E',
 			},
 			{
 				id: 'javascript',
@@ -234,6 +236,8 @@ const initialState = {
 				value: 'figma',
 				img: figma,
 				name: 'tools',
+				badge:
+					'![Figma](https://img.shields.io/badge/figma-%23F24E1E.svg?style=for-the-badge&logo=figma&logoColor=white)',
 			},
 		],
 	},
