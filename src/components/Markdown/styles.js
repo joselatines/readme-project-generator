@@ -5,7 +5,7 @@ export const Container = styled.section`
 	display: grid;
 	grid-template-columns: 1fr;
 	grid-auto-rows: auto;
-	gap: 2rem;
+	gap: .5rem;
 	@media screen and (max-width: 50em) {
 		font-size: smaller;
 	}
@@ -24,4 +24,8 @@ export const Buttons = styled.div`
 	gap: 1rem;
 	font-size: 0.7em;
 	margin: 1rem 0;
+`;
+export const Title = styled.span`
+	font-size: larger;
+	font-weight: bolder;
 `;

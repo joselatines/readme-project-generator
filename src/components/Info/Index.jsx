@@ -17,6 +17,7 @@ const Info = () => {
 					<Content>
 						<ul>
 							<li>Buy a own domain</li>
+							<li>Add more badges</li>
 							<li>Implement add-ons</li>
 						</ul>
 					</Content>

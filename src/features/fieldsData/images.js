@@ -20,6 +20,8 @@ import php from '../../shared/assets/logos/backend/php.svg';
 import swift from '../../shared/assets/logos/backend/swift.svg';
 
 import jest from '../../shared/assets/logos/testing/jest.svg';
+import testingLibrary from '../../shared/assets/logos/testing/testing-library.png';
+import selenium from '../../shared/assets/logos/testing/selenium.svg';
 
 import photoshop from '../../shared/assets/logos/tools/photoshop.svg';
 import figma from '../../shared/assets/logos/tools/figma.svg';
@@ -49,4 +51,6 @@ export {
 	figma,
 	illustrator,
 	xd,
+	testingLibrary,
+	selenium,
 };

@@ -6,11 +6,11 @@ import showdown from 'showdown';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 
 import { StyledLink } from '../../shared/styles/GlobalStyles';
-import { Container, ContainerPreview, Buttons } from './styles';
+import { Container, ContainerPreview, Buttons, Title } from './styles';
 import { Button } from '../../shared/components';
 
-import { capitalize } from '../../shared/functions/stringModifiers';
 import { resetFields } from '../../features/fieldsData/fieldsSlice';
+import toast, { Toaster } from 'react-hot-toast';
 
 const Markdown = () => {
 	const [markdown, setMarkdown] = useState(`# Example`);
@@ -53,14 +53,7 @@ const Markdown = () => {
 				let format = ``;
 
 				if (checkboxes.length >= 1) {
-					const list = checkboxes
-						.map(
-							({ value }) =>
-								`![${capitalize(
-									value
-								)}](https://img.shields.io/badge/${value}-9558B2.svg?style=for-the-badge&logo=${value})`
-						)
-						.join(' ');
+					const list = checkboxes.map(({ badge }) => badge).join(' ');
 
 					format = `${title} \n ${list}`;
 					return format;
@@ -76,11 +69,14 @@ const Markdown = () => {
 				`${displayFeatures(template.features)} \n` +
 				`${displayCheckboxes(
 					template.frontend,
-					'## Frontend Development'
+					'## Frontend Development 🌞'
 				)} \n` +
-				`${displayCheckboxes(template.backend, '## Backend Development')} \n` +
-				`${displayCheckboxes(template.testing, '## Testing')} \n` +
-				`${displayCheckboxes(template.tools, '## Tools')}`;
+				`${displayCheckboxes(
+					template.backend,
+					'## Backend Development 🌚'
+				)} \n` +
+				`${displayCheckboxes(template.testing, '## Testing 💫')} \n` +
+				`${displayCheckboxes(template.tools, '## Tools 🎨')}`;
 		};
 
 		formatTemplate();
@@ -93,7 +89,8 @@ const Markdown = () => {
 
 	return (
 		<Container>
-			<h1>Markdown</h1>
+			<Toaster position='bottom-right' />
+			<Title>Markdown</Title>
 			<ContainerPreview>{parse(html)}</ContainerPreview>
 			<Buttons>
 				<StyledLink to='/'>
@@ -103,7 +100,10 @@ const Markdown = () => {
 					</Button>
 				</StyledLink>
 				<CopyToClipboard text={markdown}>
-					<Button outline={true} onClick={() => console.log(1)}>
+					<Button
+						outline={true}
+						onClick={() => toast.success('Successfully toasted!')}
+					>
 						<i className='fa-solid fa-copy'></i>Copy to clipboard
 					</Button>
 				</CopyToClipboard>
