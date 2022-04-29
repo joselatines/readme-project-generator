@@ -1,23 +1,30 @@
 # README project generator 💻
-## Description 
-This project was made to speed up the time it takes to create the readme of our projects. Based on your inputs it displays a beautiful template to copy and paste into your readme and not waste time styling it. 📚
+## Description 📚
+ This is a free open source tool, created to speed up the creation time of our readmes files. 
+
+Based on your entries, the tool generates a beautiful template ready to copy and paste into your readme.md file without having to spend time styling the file.
+
+You can contribute to this project by adding, fixing features or making donations, all funds will go to bring new awesome features and buy a custom domain. 
  
-## App features 
-- Fill a title project
-- Fill a description
-- Fill a installation 
-- Fill in the features of your app
-- Add the technologies used 
-## Frontend Development 
- ![React](https://img.shields.io/badge/react-9558B2.svg?style=for-the-badge&logo=react) ![Javascript](https://img.shields.io/badge/javascript-9558B2.svg?style=for-the-badge&logo=javascript) ![Redux](https://img.shields.io/badge/redux-9558B2.svg?style=for-the-badge&logo=redux) 
+## App features 🪐
+- Add a title project
+- Add a description
+- Add a installation description
+- Add the features of your app
+- Add the technologies, frameworks, tools you used 
+## Frontend Development 🌞 
+![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB) ![Redux](https://img.shields.io/badge/redux-%23593d88.svg?style=for-the-badge&logo=redux&logoColor=white) ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) ![Styled Components](https://img.shields.io/badge/styled--components-DB7093?style=for-the-badge&logo=styled-components&logoColor=white)
  
-## Testing 
- ![Jest](https://img.shields.io/badge/jest-9558B2.svg?style=for-the-badge&logo=jest) 
-## Tools 
- ![Xd](https://img.shields.io/badge/xd-9558B2.svg?style=for-the-badge&logo=xd)
+## Testing 💫 
+![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white) 
+ 
+## Tools 🎨 
+![Adobe XD](https://img.shields.io/badge/Adobe%20XD-470137?style=for-the-badge&logo=Adobe%20XD&logoColor=#FF61F6)
+
 ## Libraries use
 - Redux Toolkit
 - html-react-parser
 - react-copy-to-clipboard
 - showdown
-- styled-components
+- react-helmet
+- react-hot-toast
