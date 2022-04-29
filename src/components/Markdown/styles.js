@@ -15,6 +15,7 @@ export const ContainerPreview = styled.div`
 	background-color: ${VAR.colors.white};
 	min-width: 100%;
 	padding: 2rem;
+	font-size: smaller;
 `;
 
 export const Buttons = styled.div`
