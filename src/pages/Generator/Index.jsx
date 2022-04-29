@@ -1,3 +1,4 @@
+import Helmet from 'react-helmet';
 import { useSelector, useDispatch } from 'react-redux';
 
 import { fillTemplate } from '../../features/fieldsData/fieldsSlice';
@@ -6,8 +7,6 @@ import { StyledLink } from '../../shared/styles/GlobalStyles';
 import { Container, FlexContainer, FieldsContainer } from './styles';
 import { CheckboxContainer, InputField } from '../../components';
 import { Button } from '../../shared/components';
-import Helmet from 'react-helmet';
-import { SEO } from '../../shared/functions/SEO';
 
 export const Generator = () => {
 	const { fieldsData } = useSelector(state => state);
@@ -55,8 +54,6 @@ export const Generator = () => {
 			checkboxesData: fieldsData.checkboxes.tools,
 		},
 	];
-
-	
 
 	return (
 		<Container>

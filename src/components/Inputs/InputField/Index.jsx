@@ -12,6 +12,7 @@ import {
 } from './styles';
 
 const InputField = ({ ...data }) => {
+	console.log(data);
 	const dispatch = useDispatch();
 
 	return (
