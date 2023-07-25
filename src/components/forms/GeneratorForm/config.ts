@@ -1,8 +1,9 @@
 import * as Yup from "yup";
+import { MarkdownTemplateNotParsed } from "../../../interfaces/markdown-template.interface";
 
 export const validationSchema = Yup.object({});
 
-export const initialValues: any = {
+export const initialValues: MarkdownTemplateNotParsed = {
 	technologies: [],
 	title: "",
 	description: "",

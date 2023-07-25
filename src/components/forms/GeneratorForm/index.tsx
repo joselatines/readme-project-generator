@@ -4,13 +4,24 @@ import CustomTextarea from "../inputs/CustomTextarea";
 import { validationSchema, initialValues, inputsList } from "./config";
 import CustomCheckbox from "../inputs/CustomCheckbox";
 import metadata from "../../../assets/metadata.json";
+import {
+	MarkdownTemplateNotParsed,
+	MarkdownTemplate,
+} from "../../../interfaces/markdown-template.interface";
+import { useContextMarkdownGenerator } from "../../../hooks/useContextMarkdownGenerator";
 
 function GeneratorForm() {
-	// TODO: add generic interface from app world
-	const handleSubmit = (e: any) => {
-		console.log(typeof e);
-		const featuresParsed = e.features.replace(", ", ",").split(",");
-		console.log({ ...e, features: featuresParsed });
+	const { setTemplateData } = useContextMarkdownGenerator();
+
+	const handleSubmit = (formValues: MarkdownTemplateNotParsed) => {
+		const featuresParsed = formValues.features.replace(", ", ",").split(",");
+
+		const templateData: MarkdownTemplate = {
+			...formValues,
+			features: featuresParsed,
+		};
+
+		setTemplateData(templateData);
 	};
 
 	const formik = useFormik({
