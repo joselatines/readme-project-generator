@@ -3,8 +3,10 @@ import * as Yup from "yup";
 export const validationSchema = Yup.object({});
 
 export const initialValues: any = {
-	password: "",
-	email: "",
+	technologies: [],
+	title: "",
+	description: "",
+	features: "",
 };
 
 export const inputsList = [

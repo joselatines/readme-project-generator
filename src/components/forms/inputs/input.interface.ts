@@ -1,6 +1,6 @@
 export interface IInputProps {
 	formik: any;
-	placeholder: string;
+	placeholder?: string;
 	name: string;
 	label: string;
 }

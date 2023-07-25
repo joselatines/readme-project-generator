@@ -2,10 +2,16 @@ import { useFormik } from "formik";
 import CustomTextInput from "../inputs/CustomTextInput";
 import CustomTextarea from "../inputs/CustomTextarea";
 import { validationSchema, initialValues, inputsList } from "./config";
+import CustomCheckbox from "../inputs/CustomCheckbox";
+import metadata from "../../../assets/metadata.json";
 
 function GeneratorForm() {
 	// TODO: add generic interface from app world
-	const handleSubmit = (e: any) => console.log(e);
+	const handleSubmit = (e: any) => {
+		console.log(typeof e);
+		const featuresParsed = e.features.replace(", ", ",").split(",");
+		console.log({ ...e, features: featuresParsed });
+	};
 
 	const formik = useFormik({
 		validationSchema,
@@ -18,10 +24,11 @@ function GeneratorForm() {
 			onSubmit={formik.handleSubmit}
 			className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7"
 		>
-			<div>
+			<section>
 				{inputsList.map(input =>
 					input.type === "text" ? (
 						<CustomTextInput
+							key={input.name}
 							formik={formik}
 							label={input.label}
 							name={input.name}
@@ -29,6 +36,7 @@ function GeneratorForm() {
 						/>
 					) : (
 						<CustomTextarea
+							key={input.name}
 							formik={formik}
 							label={input.label}
 							name={input.name}
@@ -36,13 +44,23 @@ function GeneratorForm() {
 						/>
 					)
 				)}
-			</div>
+			</section>
 
+			<section className="flex flex-wrap gap-3">
+				{metadata.technologies.map(tech => (
+					<CustomCheckbox
+						key={tech.label}
+						formik={formik}
+						label={tech.label}
+						name={tech.name}
+					/>
+				))}
+			</section>
 			<div className="relative">
 				<button
 					type="submit"
-					disabled={formik.isSubmitting}
-					className={`btn ${formik.isSubmitting && "disabled"}`}
+					/* 	disabled={formik.isSubmitting}
+					className={`btn ${formik.isSubmitting && "disabled"}`} */
 				>
 					Login
 				</button>
