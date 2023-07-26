@@ -3,8 +3,8 @@ import { MarkdownTemplate } from "../interfaces/markdown-template.interface";
 
 interface ContextProps {
 	setTemplateData: (data: MarkdownTemplate) => void;
-	getTemplateData: () => void;
 	markdownTemplateData: MarkdownTemplate;
+	markdownTemplate: string;
 }
 
 const defaultMarkdownTemplate = {
@@ -15,9 +15,9 @@ const defaultMarkdownTemplate = {
 };
 
 const defaultValues: ContextProps = {
-	setTemplateData: defaultMarkdownTemplate => defaultMarkdownTemplate,
-	getTemplateData: () => {},
+	setTemplateData: defaultMarkdownTemplate => null,
 	markdownTemplateData: defaultMarkdownTemplate,
+	markdownTemplate: "",
 };
 
 // 1. create context
@@ -31,17 +31,44 @@ interface Props {
 export function MarkdownProvider({ children }: Props) {
 	const [markdownTemplateData, setMarkdownTemplateData] =
 		useState<MarkdownTemplate>(defaultMarkdownTemplate);
+	const [markdownTemplate, setMarkdownTemplate] = useState("");
 
 	const setTemplateData = (data: MarkdownTemplate) => {
 		console.log(1);
 		setMarkdownTemplateData(data);
+		generateMarkdown(data);
 	};
 
-	const getTemplateData = () => markdownTemplateData;
+	const generateMarkdown = (dataTemplate: MarkdownTemplate) => {
+		const title = dataTemplate.title || "title example";
+		const description = dataTemplate.description || "description example";
+		const features = dataTemplate.features || "title example";
+		const technologies = dataTemplate.technologies || "title example";
+
+		const template = `
+# ${title} 💻
+
+## Description 📚
+${description}
+
+## Features 🌞
+${features} 
+
+## Technologies 🌞 
+${technologies}
+ ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) 
+		`;
+
+		setMarkdownTemplate(template);
+	};
 
 	return (
 		<MarkdownContext.Provider
-			value={{ markdownTemplateData, setTemplateData, getTemplateData }}
+			value={{
+				markdownTemplateData,
+				markdownTemplate,
+				setTemplateData,
+			}}
 		>
 			{children}
 		</MarkdownContext.Provider>
