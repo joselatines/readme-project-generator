@@ -5,7 +5,7 @@ function CustomTextarea({ formik, name, label, placeholder }: IInputProps) {
 		<div className="mb-4">
 			<div className="mb-4">
 				<label
-					className="block text-gray-700 text-sm font-bold mb-2"
+					className="block text-gray-700 font-bold mb-2"
 					htmlFor={name}
 				>
 					{label}

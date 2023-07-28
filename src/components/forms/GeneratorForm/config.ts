@@ -7,6 +7,7 @@ export const initialValues: MarkdownTemplateNotParsed = {
 	technologies: [],
 	title: "",
 	description: "",
+	installation: "",
 	features: "",
 };
 
@@ -21,13 +22,13 @@ export const inputsList = [
 		label: "Description",
 		name: "description",
 		type: "textarea",
-		placeholder: "This project...",
+		placeholder: "This project retrieves cookies data from NASA...",
 	},
 	{
 		label: "Installation",
 		name: "installation",
 		type: "textarea",
-		placeholder: "To run this project you need...",
+		placeholder: "To run this project you need to install...",
 	},
 	{
 		label: "Features",

@@ -1,11 +1,8 @@
 # React + TypeScript + Vite
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Our tool is designed to significantly reduce the time it takes to create readme files. By simply entering your information, the generator will create a beautiful template that can be easily copied and pasted into your readme.md file. No more manual styling or wasting time on formatting – we've got you covered!
 
-Currently, two official plugins are available:
-
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Contribute to this project by adding or fixing features, or consider making a donation. All funds received will be used to bring exciting new updates and acquire a custom domain to further improve the tool's capabilities.
 
 ## Expanding the ESLint configuration
 

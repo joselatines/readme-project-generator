@@ -1,12 +1,18 @@
+import Footer from "./components/Footer";
+import Navigation from "./components/Navigation";
 import GeneratorForm from "./components/forms/GeneratorForm";
 import MarkdownPreview from "./components/forms/MarkdownPreview";
 
 function App() {
 	return (
-		<main className="grid col-span-2">
-			<GeneratorForm />
-			<MarkdownPreview />
-		</main>
+		<>
+			<Navigation />
+			<main className="grid gap-10 md:grid-cols-2 p-8">
+				<GeneratorForm />
+				<MarkdownPreview />
+			</main>
+			<Footer />
+		</>
 	);
 }
 

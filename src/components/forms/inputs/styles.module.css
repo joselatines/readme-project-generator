@@ -1,0 +1,21 @@
+i {
+	display: none;
+	opacity: 0;
+	position: absolute;
+	top: 5px;
+	left: 5px;
+}
+
+input[type="checkbox"] {
+	position: absolute;
+	opacity: 0;
+}
+
+input[type="checkbox"]:checked + i {
+	display: block;
+	opacity: 1;
+}
+
+input[type="checkbox"]:checked + .container {
+	display: none;
+}

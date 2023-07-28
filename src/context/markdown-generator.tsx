@@ -1,5 +1,13 @@
 import { createContext, useState } from "react";
 import { MarkdownTemplate } from "../interfaces/markdown-template.interface";
+import data from "../assets/data.json";
+
+interface Technology {
+	name: string;
+	label: string;
+	type: string;
+	badge: string;
+}
 
 interface ContextProps {
 	setTemplateData: (data: MarkdownTemplate) => void;
@@ -11,6 +19,7 @@ const defaultMarkdownTemplate = {
 	technologies: [],
 	title: "",
 	description: "",
+	installation: "",
 	features: [],
 };
 
@@ -34,29 +43,53 @@ export function MarkdownProvider({ children }: Props) {
 	const [markdownTemplate, setMarkdownTemplate] = useState("");
 
 	const setTemplateData = (data: MarkdownTemplate) => {
-		console.log(1);
 		setMarkdownTemplateData(data);
 		generateMarkdown(data);
 	};
 
 	const generateMarkdown = (dataTemplate: MarkdownTemplate) => {
-		const title = dataTemplate.title || "title example";
-		const description = dataTemplate.description || "description example";
-		const features = dataTemplate.features || "title example";
-		const technologies = dataTemplate.technologies || "title example";
+		console.log({ dataTemplate });
+		const title = dataTemplate.title || "Title example";
+		const description =
+			dataTemplate.description || "This is a description example...";
+		const features = dataTemplate.features || [
+			"Amazing feature number one",
+			"Another amazing feature",
+		];
+		const technologies = dataTemplate.technologies || [
+			"javascript",
+			"react",
+			"nodejs",
+		];
 
-		const template = `
-# ${title} 💻
+		const renderTechnologiesBadges = (
+			allTechnologies: Technology[],
+			currentTechnologies: string[]
+		) => {
+			const technologiesGiven = allTechnologies.filter(techData =>
+				currentTechnologies.some(techUser =>
+					techUser.toLowerCase().includes(techData.name.toLowerCase())
+				)
+			);
 
-## Description 📚
+			return technologiesGiven
+				.map(techData => `${techData.badge} \n`)
+				.join(" ");
+		};
+
+		const renderFeatures = (features: string[]) =>
+			features.map(feature => `- ${feature} \n`).join(" ");
+
+		const template = `# 💻 ${title} 💻
+
+## 📚 Description 📚
 ${description}
 
-## Features 🌞
-${features} 
+## 🚀 Features 🚀
+${renderFeatures(features)}
 
-## Technologies 🌞 
-${technologies}
- ![JavaScript](https://img.shields.io/badge/javascript-%23323330.svg?style=for-the-badge&logo=javascript&logoColor=%23F7DF1E) 
+## 🤖 Technologies 🤖
+${renderTechnologiesBadges(data.technologies, technologies)}
 		`;
 
 		setMarkdownTemplate(template);

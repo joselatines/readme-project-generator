@@ -1,4 +1,5 @@
 import { IInputProps } from "./input.interface";
+import "./styles.module.css";
 
 function CustomCheckbox({ formik, name, label }: IInputProps) {
 	const iconPath = `https://cdn.jsdelivr.net/gh/devicons/devicon/icons/${name}/${name}-original.svg`;
@@ -21,7 +22,7 @@ function CustomCheckbox({ formik, name, label }: IInputProps) {
 	};
 	return (
 		<label htmlFor={name}>
-			<div className="bg-white p-4 border border-red-500">
+			<div className="bg-white rounded-md cursor-pointer p-4 border-2 relative border-gray-950">
 				<input
 					type="checkbox"
 					name={name}
@@ -30,7 +31,8 @@ function CustomCheckbox({ formik, name, label }: IInputProps) {
 					onBlur={formik.handleBlur}
 					value={formik.values[name]}
 				/>
-				<img width={100} height={100} src={iconPath} alt={label} />
+				<i id="checkbox-icon" className="fa-solid fa-circle-check "></i>
+				<img width={35} height={35} src={iconPath} alt={label} />
 			</div>
 		</label>
 	);

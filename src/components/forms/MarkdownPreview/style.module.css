@@ -1,0 +1,23 @@
+.container {
+	margin: 1rem 0;
+}
+.container h1 {
+	font-weight: 800;
+	font-size: 1.5rem;
+}
+
+.container h2 {
+	font-weight: 700;
+	font-size: 1.3rem;
+	margin-top: 1rem;
+}
+
+.container ul {
+	list-style-type: disc;
+	padding: revert;
+}
+
+.container p img {
+	display: inline;
+	margin: 0.2em;
+}

@@ -1,8 +1,8 @@
 {
 	"technologies": [
 		{
-			"name": "html",
-			"label": "html",
+			"name": "html5",
+			"label": "html5",
 			"type": "frontend",
 			"badge": "![HTML5](https://img.shields.io/badge/html5-%23E34F26.svg?style=for-the-badge&logo=html5&logoColor=white)"
 		},
@@ -31,14 +31,14 @@
 			"badge": "![React](https://img.shields.io/badge/react-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)"
 		},
 		{
-			"name": "angular",
-			"label": "angular",
+			"name": "angularjs",
+			"label": "angularjs",
 			"type": "frontend",
 			"badge": "![Angular](https://img.shields.io/badge/angular-%23DD0031.svg?style=for-the-badge&logo=angular&logoColor=white)"
 		},
 		{
-			"name": "vue",
-			"label": "vue",
+			"name": "vuejs",
+			"label": "vuejs",
 			"type": "frontend",
 			"badge": "![Vue.js](https://img.shields.io/badge/vuejs-%2335495e.svg?style=for-the-badge&logo=vuedotjs&logoColor=%234FC08D)"
 		},
@@ -73,14 +73,14 @@
 			"badge": "![Python](https://img.shields.io/badge/python-3670A0?style=for-the-badge&logo=python&logoColor=ffdd54)"
 		},
 		{
-			"name": "cPlusPlus",
-			"label": "c++",
+			"name": "cplusplus",
+			"label": "cplusplus",
 			"type": "backend",
 			"badge": "![C++](https://img.shields.io/badge/c++-%2300599C.svg?style=for-the-badge&logo=c%2B%2B&logoColor=white)"
 		},
 		{
-			"name": "cSharp",
-			"label": "c#",
+			"name": "csharp",
+			"label": "csharp",
 			"type": "backend",
 			"badge": "![C#](https://img.shields.io/badge/c%23-%23239120.svg?style=for-the-badge&logo=c-sharp&logoColor=white)"
 		},
@@ -109,13 +109,13 @@
 			"badge": "![Swift](https://img.shields.io/badge/swift-F54A2A?style=for-the-badge&logo=swift&logoColor=white)"
 		},
 		{
-			"name": "jest-id",
+			"name": "jest",
 			"label": "jest",
 			"type": "testing",
 			"badge": "![Jest](https://img.shields.io/badge/-jest-%23C21325?style=for-the-badge&logo=jest&logoColor=white)"
 		},
 		{
-			"name": "testing-library",
+			"name": "testing library",
 			"label": "testing library",
 			"type": "testing",
 			"badge": "![Testing-Library](https://img.shields.io/badge/-TestingLibrary-%23E33332?style=for-the-badge&logo=testing-library&logoColor=white)"

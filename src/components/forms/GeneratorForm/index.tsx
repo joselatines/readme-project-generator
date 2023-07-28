@@ -3,17 +3,28 @@ import CustomTextInput from "../inputs/CustomTextInput";
 import CustomTextarea from "../inputs/CustomTextarea";
 import { validationSchema, initialValues, inputsList } from "./config";
 import CustomCheckbox from "../inputs/CustomCheckbox";
-import metadata from "../../../assets/metadata.json";
+import data from "../../../assets/data.json";
 import {
 	MarkdownTemplateNotParsed,
 	MarkdownTemplate,
 } from "../../../interfaces/markdown-template.interface";
 import { useContextMarkdownGenerator } from "../../../hooks/useContextMarkdownGenerator";
 
+// these are technologies that are not presented on the cdn icon provider
+const prohibitedIcons = "photoshop, testing library, jest, xd, illustrator";
+
 function GeneratorForm() {
 	const { setTemplateData } = useContextMarkdownGenerator();
 
-	const handleSubmit = (formValues: MarkdownTemplateNotParsed) => {
+	// technologies that are not presented in prohibitedIcons
+	const technologies = data.technologies.filter(
+		tech => !prohibitedIcons.includes(tech.name)
+	);
+
+	const handleSubmit = (
+		formValues: MarkdownTemplateNotParsed,
+		actions: any
+	) => {
 		const featuresParsed = formValues.features.replace(", ", ",").split(",");
 
 		const templateData: MarkdownTemplate = {
@@ -22,6 +33,7 @@ function GeneratorForm() {
 		};
 
 		setTemplateData(templateData);
+		// actions.resetForm();
 	};
 
 	const formik = useFormik({
@@ -33,7 +45,7 @@ function GeneratorForm() {
 	return (
 		<form
 			onSubmit={formik.handleSubmit}
-			className="py-8 text-base leading-6 space-y-4 text-gray-700 sm:text-lg sm:leading-7"
+			className="font-bold mb-2 text-lg text-gray-700 "
 		>
 			<section>
 				{inputsList.map(input =>
@@ -57,8 +69,9 @@ function GeneratorForm() {
 				)}
 			</section>
 
+			<span>Technologies used</span>
 			<section className="flex flex-wrap gap-3">
-				{metadata.technologies.map(tech => (
+				{technologies.map(tech => (
 					<CustomCheckbox
 						key={tech.label}
 						formik={formik}
@@ -67,15 +80,14 @@ function GeneratorForm() {
 					/>
 				))}
 			</section>
-			<div className="relative">
-				<button
-					type="submit"
-					/* 	disabled={formik.isSubmitting}
-					className={`btn ${formik.isSubmitting && "disabled"}`} */
-				>
-					Login
-				</button>
-			</div>
+			<i id="checkbox-icon" className="fa-solid fa-circle-check "></i>
+			<button
+				type="submit"
+				/* disabled={formik.isSubmitting} */
+				className={`btn mt-4 w-full`}
+			>
+				Generate markdown <i className="fa-solid fa-plus"></i>
+			</button>
 		</form>
 	);
 }
