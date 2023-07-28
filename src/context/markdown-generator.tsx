@@ -24,7 +24,7 @@ const defaultMarkdownTemplate = {
 };
 
 const defaultValues: ContextProps = {
-	setTemplateData: defaultMarkdownTemplate => null,
+	setTemplateData: defaultMarkdownTemplate => defaultMarkdownTemplate,
 	markdownTemplateData: defaultMarkdownTemplate,
 	markdownTemplate: "",
 };

@@ -22,8 +22,7 @@ function GeneratorForm() {
 	);
 
 	const handleSubmit = (
-		formValues: MarkdownTemplateNotParsed,
-		actions: any
+		formValues: MarkdownTemplateNotParsed
 	) => {
 		const featuresParsed = formValues.features.replace(", ", ",").split(",");
 
